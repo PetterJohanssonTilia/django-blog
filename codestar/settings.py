@@ -93,6 +93,11 @@ DATABASES['default']['OPTIONS'] = {
     'sslmode': 'require',
     'options': f'endpoint=ep-gentle-mountain-a23bxz6h',
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.github.dev"
+    "https://*.herokuapp.com"
+]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
