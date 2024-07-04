@@ -15,8 +15,11 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     update_on = models.DateTimeField(auto_now=True)
+
     class Meta:
-        ordering = ["-created-on"]
+        ordering = ["created_on"]
+    def __str__(self):
+        return f"Title: {self.title} | Author: {self.author}"
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -25,7 +28,11 @@ class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commentor"
     )
-   
+    
     body = models.TextField(max_length=200)
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ["created_on"]
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"
