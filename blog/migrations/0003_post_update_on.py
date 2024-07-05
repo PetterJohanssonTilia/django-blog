@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name="post",
-            name="update_on",
-            field=models.DateTimeField(auto_now=True),
+            name="updated_on",
+            field=models.DateTimeField(auto_now=True, null=True),
         ),
     ]
