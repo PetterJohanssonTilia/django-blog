@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import AboutPage
-
-# Register your models here.
+from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(AboutPage)
-class AboutPageAdmin(admin.ModelAdmin):
+class AboutPageAdmin(SummernoteModelAdmin):
     list_display = ('title', 'last_updated')
+    search_fields = ['title', 'content']
+    summernote_fields = ('content',)
